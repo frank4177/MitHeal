@@ -1,10 +1,9 @@
-import  { useState } from "react";
-import Layout from "../components/layout";
+import { useState } from "react";
+import Layout from "../components/layout/Wrappers/DashboardWrapper";
 import { Biometric } from "../components/shared/Webcam";
 // import VerificationCard from "../components/Cards/VerificationCard";
 import Modal from "../components/shared/Modal";
 // import { useBiometricJobRequest } from "../services/APIs/verification";
-
 
 const VerificationPage = () => {
   const [modal, setModal] = useState(false);

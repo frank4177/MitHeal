@@ -2,8 +2,9 @@ import { sidebarMenus } from "../../../contants";
 import { useDispatch } from "react-redux";
 import { CiLogout } from "react-icons/ci";
 import { Link } from "react-router-dom";
-import { useLocation } from 'react-router-dom'
+import { useLocation } from "react-router-dom";
 import { logout } from "../../../services/redux/features/userSlice";
+import Logo from "../../shared/Logo";
 
 const Sidebar = () => {
   const location = useLocation();
@@ -13,7 +14,7 @@ const Sidebar = () => {
   const path = location.pathname;
 
   const handleLogout = () => {
-    dispatch(logout())
+    dispatch(logout());
     window.location.href = "/";
   };
 
@@ -21,9 +22,7 @@ const Sidebar = () => {
     <>
       <div className="w-[16%] min-h-[100vh]  shadow-lg">
         <div className="p-3 fixed h-full w-[15%] flex flex-col">
-          <p className="font-bold text-[20px] mb-4">
-            Mit<span className="text-blue-600">Heal</span>
-          </p>
+          <Logo />
 
           <hr />
 

@@ -1,13 +1,10 @@
-
-import Layout from "../components/layout";
+import Layout from "../components/layout/Wrappers/DashboardWrapper";
 
 const BiometricVerification = () => {
   return (
     <>
       <Layout>
-        <div>
-            
-        </div>
+        <div></div>
       </Layout>
     </>
   );

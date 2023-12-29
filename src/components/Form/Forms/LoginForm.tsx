@@ -1,18 +1,20 @@
 import { useState } from "react";
-import InputField from "../FormElements/InputField/InputField";
+import InputField from "../FormElements/InputField";
 import { Link, useNavigate } from "react-router-dom";
 import Button from "../../shared/Buttons/Button";
 import Spinner from "../../shared/Loaders/Spinner";
 import { AuthType } from "../../../types";
 import { useDispatch, useSelector } from "react-redux";
-import { login} from "../../../services/redux/features/userSlice";
+import { login } from "../../../services/redux/features/userSlice";
 import { RootState } from "../../../services/redux/store";
-import CryptoJS from 'crypto-js';
+import CryptoJS from "crypto-js";
 
 const LoginForm = () => {
-  const dispatch = useDispatch()
-  const navigate = useNavigate()
-  const storedCredentials = useSelector((state: RootState) => state?.user?.registeredData);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const storedCredentials = useSelector(
+    (state: RootState) => state?.user?.registeredData
+  );
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [payload, setPayload] = useState<AuthType>({
     email: "",
@@ -20,7 +22,7 @@ const LoginForm = () => {
   });
 
   const handleChange = (e: any) => {
-    setErrorMessage("")
+    setErrorMessage("");
     const { name, value } = e.target;
     setPayload((prevPayload) => ({
       ...prevPayload,
@@ -30,14 +32,17 @@ const LoginForm = () => {
 
   const handleLogin = async (e: any) => {
     e.preventDefault();
-    if (payload.email === storedCredentials.email && payload.password === storedCredentials.password) {
-      const token = "token2924"
+    if (
+      payload.email === storedCredentials.email &&
+      payload.password === storedCredentials.password
+    ) {
+      const token = "token2924";
       // Encrypt token
-      const encryptedToken = CryptoJS.AES.encrypt(token, '001').toString();
-      navigate("/dashboard")
-      dispatch(login(encryptedToken))
+      const encryptedToken = CryptoJS.AES.encrypt(token, "001").toString();
+      navigate("/dashboard");
+      dispatch(login(encryptedToken));
     } else {
-      setErrorMessage("Incrorrect login details")
+      setErrorMessage("Incrorrect login details");
     }
   };
 
@@ -58,7 +63,6 @@ const LoginForm = () => {
           className="flex flex-col gap-3 mt-7 w-full"
           onSubmit={handleLogin}
         >
-         
           <InputField
             title="Email"
             name="email"
@@ -74,7 +78,9 @@ const LoginForm = () => {
             required={true}
           />
 
-          {errorMessage ? <p className="text-red-600 text-[14px]">{errorMessage}</p>: null}
+          {errorMessage ? (
+            <p className="text-red-600 text-[14px]">{errorMessage}</p>
+          ) : null}
           <Button
             title="Log in"
             height={35}

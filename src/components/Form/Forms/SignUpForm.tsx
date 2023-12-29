@@ -1,5 +1,5 @@
-import  { useState } from "react";
-import InputField from "../FormElements/InputField/InputField";
+import { useState } from "react";
+import InputField from "../FormElements/InputField";
 import { Link, useNavigate } from "react-router-dom";
 import Button from "../../shared/Buttons/Button";
 import Spinner from "../../shared/Loaders/Spinner";
@@ -24,7 +24,7 @@ const SignUpForm = () => {
     lastname: "",
     email: "",
     phonenumber: "",
-    country:"",
+    country: "",
     gender: "",
     dob: "",
     password: "",

@@ -1,5 +1,5 @@
 import React from "react";
-import Sidebar from "./Sidebar/Sidebar";
+import Sidebar from "../Sidebar/Sidebar";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (

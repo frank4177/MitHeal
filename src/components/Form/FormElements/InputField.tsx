@@ -1,9 +1,12 @@
+import { InputType } from "../../../types";
 
-import { InputType } from "../../../../types";
-
-
-
-const InputField = ({ title, handleChange, name, type, required }: InputType) => {
+const InputField = ({
+  title,
+  handleChange,
+  name,
+  type,
+  required,
+}: InputType) => {
   return (
     <>
       <div className="flex flex-col w-full">

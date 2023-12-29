@@ -82,7 +82,6 @@ export const Biometric: React.FC = () => {
   return (
     <div>
       <SmileIdentityCamera {...cameraProps} />
-      {/* Other components or content */}
     </div>
   );
 };
